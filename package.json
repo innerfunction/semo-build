@@ -1,0 +1,12 @@
+{
+    "name":"semo-build",
+    "private":false,
+    "version":"0.1",
+    "dependencies": {
+        "dustjs-q":"git://github.com/innerfunction/dustjs-q.git",
+        "htmlparser2":">3.2.3",
+        "log4js":"0.5.1",
+        "mime":">=1.2.6",
+        "semo":"git://github.com:innerfunction/Semo-Server.git#ep-build"
+    }
+}
