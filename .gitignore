@@ -27,3 +27,6 @@ npm-debug.log
 
 # Users Environment Variables
 .lock-wscript
+
+# VIM swap files.
+.swp

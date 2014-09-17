@@ -1,8 +1,9 @@
 {
     "name":"semo-build",
     "private":false,
-    "version":"0.1",
+    "version":"0.0.1",
     "dependencies": {
+        "dateformat":">=1.0.8",
         "dustjs-q":"git://github.com/innerfunction/dustjs-q.git",
         "htmlparser2":">3.2.3",
         "log4js":"0.5.1",

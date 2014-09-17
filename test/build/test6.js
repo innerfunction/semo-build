@@ -1,4 +1,4 @@
-require('../lib/cx')
+require('./lib/cx')
 .run('input','output', function( cx ) {
     var img = cx.image('home-banner.png').write();
     var data = {
