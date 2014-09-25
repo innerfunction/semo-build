@@ -1,0 +1,22 @@
+x. Need to review naming scheme, i.e. review the following:
+    * Feeds? OK
+    * Downloads? OK
+    * Installer? OK
+    * Naming of cdb design doc & views. Done
+
+x. Need a mechanism to allow a download script to cancel the follow-up build
+   (i.e. because no new data has been downloaded).
+   Thing here is that as the condition is dependent on the downloaded data, the
+   mechanism needs to be async - i.e. the build function just returning true/false
+   won't be sufficient.
+
+x. Allow feeds to specifiy a build retention policy - i.e. how are build records
+   removed from the system?
+   (This may not even be needed; because of the likely efficiency of diff'ing the
+   current build with past builds; and the fact that past build content can be
+   safely and completely deleted once a new build is generated)
+   (Removed for now).
+
+4. Generation of build input/output dir paths in builder.js
+
+5. Build queryier component.
