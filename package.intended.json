@@ -3,12 +3,14 @@
     "private":false,
     "version":"0.0.1",
     "dependencies": {
+        "chokidar":">=0.9.0",
         "dateformat":">=1.0.8",
         "dustjs-q":"git://github.com/innerfunction/dustjs-q.git",
         "htmlparser2":">3.2.3",
         "log4js":"0.5.1",
         "mime":">=1.2.6",
         "node-schedule":">=0.1.13",
-        "semo":"git://github.com:innerfunction/Semo-Server.git#ep-build"
+        "semo":"git://github.com:innerfunction/Semo-Server.git#ep-build",
+        "temp":">=0.8.1"
     }
 }
