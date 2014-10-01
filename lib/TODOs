@@ -3,4 +3,4 @@
     > Also, semob doesn't count number of args properly
 2. Allow feeds to specify files to be excluded from the build diff
 3. Build script documentation.
-4. Add deep-equal to package.json
+x. Add deep-equal to package.json

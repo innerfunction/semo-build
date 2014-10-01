@@ -1,0 +1,61 @@
+Download function:
+
+    function( cx ) {
+        ...
+    }
+
+Where:
+    cx:     Feed (download) context object.
+
+
+-- Context --------------------------------
+The feed (download) context object.
+
+> get( url, args... )
+Perform an HTTP GET on the specified URL.
+    @url:   The URL to get. Can include format specifiers (%s, %d)
+    @args:  Zero one or more values to populate into the URL pattern.
+Returns a Feed object.
+
+
+> lastDownload( format )
+Return the time of the last download.
+    @format:    The format of the time string. See https://github.com/felixge/node-dateformat
+
+
+> record( data )
+Save a feed record to the database.
+    @data:      The record data. Can include Feed or Posts references.
+Returns the Context object.
+
+
+> write( posts )
+Write feed posts to the database.
+    @posts:     A Posts instance.
+Returns the Context object.
+
+
+> clean( testfn )
+Clean feed posts from the database.
+    @testfn:    A function for testing whether a post should be deleted from the database.
+                Should return 'true' if a post record should be kept.
+
+-- Feed -----------------------------------
+An object representing feed data downloaded from a server using the Context.get(...) method.
+
+> posts( fn ):
+Return a list of posts from the feed data.
+    @fn:        A function which accepts the feed data, and returns an object representing
+                the posts data, which should be an array of objects.
+Returns a Posts object.
+
+-- Posts ----------------------------------
+An object representing an array of posts derived from a data feed.
+
+> map( fn ):
+Map each post in the array to a new format.
+    @fn:        A function which accepts a single post item and returns an object
+                representing that item's new format.
+                The new format can include references to Feed and Posts objects.
+Returns a Posts object.
+
