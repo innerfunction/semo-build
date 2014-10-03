@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>{title}</title>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="bootstrap.min.css" />
+	<link rel="stylesheet" href="flags32.css" />
+	<link rel="stylesheet" href="flags16.css" />
+	<link rel="stylesheet" href="style.css" />
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bootstrap.min.js"></script>
+
+     <style type="text/css">
+        {#image}
+           /* div.image-banner {
+                background: url({src}) 50% 50% no-repeat;
+                height: {height}px;
+                -moz-background-size: {width}px {height}px;
+                -webkit-background-size: {width}px {height}px;
+                background-size: {width}px {height}px;
+            }*/
+        {/image}
+    </style>
+
+</head>
+<body >
+	<div class="container-fluid">
+		<div class="row">
+			<div class="cold-md-12 col-sm-12 col-xs-12 event-header-title event-header">
+				       <h1>{title} </h1>
+			</div>	
+
+			<div class="cold-md-12 col-sm-12 col-xs-12 event-header">
+				       <h1>{title} </h1>
+				       <h2>{circuit}</h2>
+				       <p class="date"> Desde {location.timeStart}, hasta {location.timeEnd} </p>
+			</div>
+			<div class="cold-md-12 col-sm-12 col-xs-12 main-image">
+				<!-- <img class="img-responsive" title="Race" src="images/races/australia.png" /> -->
+				{#image}
+                <!-- <div class="image image-banner img-responsive"></div> -->
+                <img class="img-responsive" title="Race" src="{src}" />
+             
+                {/image}
+				<div class="favourite-btn"></div>
+				<!-- TODO: add active class when the user press the favourite-btn and add the race to the favourite list -->
+			</div>
+		</div>
+
+
+		<div class="row event-detail">
+			<div class="cold-md-6 col-sm-6 col-xs-6">
+  					<dt>Vueltas</dt>
+
+			</div>
+			<div class="cold-md-6 col-sm-6 col-xs-6">
+					<dd>{laps}</dd>
+			</div>
+		</div>
+		<div class="row event-detail">
+			<div class="cold-md-6 col-sm-6 col-xs-6">
+  					<dt>Longitud</dt>
+
+			</div>
+			<div class="cold-md-6 col-sm-6 col-xs-6">
+					<dd>{longitude}</dd>
+			</div>
+		</div>
+		<div class="row event-detail">
+			<div class="cold-md-6 col-sm-6 col-xs-6">
+  					<dt>Distancia</dt>
+
+			</div>
+			<div class="cold-md-6 col-sm-6 col-xs-6">
+					<dd>{distance}</dd>
+			</div>
+		</div>
+		<div class="row event-detail">
+			<div class="cold-md-6 col-sm-6 col-xs-6">
+  					<dt>Numero de curvas</dt>
+
+			</div>
+			<div class="cold-md-6 col-sm-6 col-xs-6">
+					<dd>{turnNumber}</dd>
+			</div>
+		</div>
+		<div class="row event-detail">
+			<div class="cold-md-6 col-sm-6 col-xs-6">
+  					<dt>Uso de acelerador</dt>
+
+			</div>
+			<div class="cold-md-6 col-sm-6 col-xs-6">
+					<dd>{throttleLapUsePercentaje}</dd>
+			</div>
+		</div>
+		<div class="row event-detail">
+			<div class="cold-md-6 col-sm-6 col-xs-6">
+					<dt>Curvas importantes</dt>
+			</div>
+			<div class="cold-md-6 col-sm-6 col-xs-6">
+				<dd>
+					<ul>
+						{#importantLaps}
+							<li>- {.}</li>
+						{/importantLaps}
+
+					</ul>
+				</dd>
+			</div>
+		</div>
+		<div class="row event-detail">
+			<div class="cold-md-6 col-sm-6 col-xs-6">
+  					<dt>Récord Vuelta</dt>
+  			</div>
+  			<div class="cold-md-6 col-sm-6 col-xs-6">
+  					<dd>
+  						<ul>
+	  						<li>- {fastestLapTime} </li>
+	  						<li>- {fastestLapDriver} </li>
+	  						{?fastestLapCarYear}
+	  							<li>- {fastestLapCarYear}</li>
+	  						{/fastestLapCarYear}
+	  					</ul>
+  					</dd>
+  			</div>
+		</div>
+		<div class="row event">
+			<div class="cold-md-12 col-sm-12 col-xs-12 divider"></div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row race-description">
+			<div class="cold-md-12 col-sm-12 col-xs-12">
+				<p>{content|s}</p>
+			</div>
+		</div>
+<!-- 		<div class="row">
+			<div class="cold-md-12 col-sm-12 col-xs-12 divider"></div>
+		</div> -->
+		<div class="row action-area">
+			<div class="cold-md-12 col-sm-12 col-xs-12"><a class="race-results-btn" href="{id}-results.html">Ver resultados</a></div>
+		</div>
+	</div>
+
+</body>
+</html>

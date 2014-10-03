@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<title>{title}</title>
+
+	<link rel="stylesheet" href="bootstrap.min.css" />
+	<link rel="stylesheet" href="flags32.css" />
+	<link rel="stylesheet" href="flags16.css" />
+	<link rel="stylesheet" href="style.css" />
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bootstrap.min.js"></script>
+    <style type="text/css">
+
+    {#image}
+        div.image-banner {
+            background: url({src}) 50% 50% no-repeat;
+            height: {height}px;
+            -moz-background-size: {width}px {height}px;
+            -webkit-background-size: {width}px {height}px;
+            background-size: {width}px {height}px;
+        }
+    {/image}
+/*    {?galleryHeight}
+    div.gallery {
+        height: {galleryHeight}px;
+    }
+    {/galleryHeight}
+    {#images}
+        div.image-{idx} {
+            background: url({src}) 50% 50% no-repeat;
+            height: {height}px;
+            -moz-background-size: {width}px {height}px;
+            -webkit-background-size: {width}px {height}px;
+            background-size: {width}px {height}px;
+        }
+    {/images}*/
+    </style>
+
+</head>
+<body >
+	<div class="container-fluid">
+        <div class="row">
+            <div class="cold-md-12 col-sm-12 col-xs-12">
+                <h2>{title}</h2>
+                <h3 class="news-subtitle">{created} - {author}</h3>
+            </div>
+        </div>
+        <div class="row ">
+            {#image}
+                <div class="cold-md-12 col-sm-12 col-xs-12 image">
+                    <img class="image img-responsive" src="{src}" />
+                </div>
+               <!--<div class="image image-banner news"></div> -->
+            {/image}
+<!--             {?images}
+            <div class="gallery autoplay items-{images.length}">
+                {#images}
+                <div class="item image image-{idx}"></div>
+                {/images}
+                <div class="controls">
+                    {#images}
+                    <a href="#item-{idx}" class="control-button">•</a>
+                    {/images}
+                </div>
+            </div>
+            {/images} -->
+        </div>
+        <div class="row">
+            <div class="cold-md-12 col-sm-12 col-xs-12 news-content"><p>
+                {content|s}
+            </div>
+        </div>
+
+	</div>
+<script>
+	$(document).ready(function(){
+		var $table = $('.news-content').find('table').addClass('table table-striped');
+		$table.find('tbody tr td').addClass('tbody-news');
+		$table.find('thead tr td').addClass('thead-news');
+	});
+</script>
+</body>
+</html>

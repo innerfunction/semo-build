@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{title}</title>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="bootstrap.min.css" />
+	<link rel="stylesheet" href="flags32.css" />
+	<link rel="stylesheet" href="flags16.css" />
+	<link rel="stylesheet" href="style.css" />
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="theme/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+	<div id="individual-section" class="section" style="display: visible;">
+		<div class="container-fluid">
+			<div  class="row tabs-result" >
+				<div class="cold-md-6 col-sm-6 col-xs-6" id="individual">
+					<a class="tab-btn active"  href="individual">Pilotos</a>
+				</div>
+				<div class="cold-md-6 col-sm-6 col-xs-6" id="team" >
+					<a class="tab-btn" href="team">Equipos</a>
+				</div>
+			</div>
+			<div class="row content-result">
+				<div class="cold-md-12 col-sm-12 col-xs-12 results">
+					<table class="table fixed">
+						<colgroup>
+							<col width="10%">
+							<col  width="50%">
+							<col width="20%">
+							<col width="20%">
+						</colgroup>
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>Piloto</th>
+								<th>Escudería</th>
+								<th>Puntos</th>
+							</tr>
+						</thead>
+						<tbody>
+						
+						</tbody>
+					</table>						
+					<table class="table table-striped">
+						<colgroup>
+							<col width="10%">
+							<col  width="50%">
+							<col width="20%">
+							<col width="20%">
+						</colgroup>
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>Piloto</th>
+								<th>Escudería</th>
+								<th>Puntos</th>
+							</tr>
+						</thead>
+						<tbody>
+	                        {#resultsIndividual}
+							<tr class="f16">
+								<td>{id}</td>
+								<td><span class="flag {nationality}"></span>{title}</td>
+								<td>{teamInitials}</td>
+								<td>{points}</td>
+							</tr>
+   	                     	{/resultsIndividual}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="team-section" class="section" style="display: none">
+		<div class="container-fluid">
+			<div   class="row tabs-result">
+				<div class="cold-md-6 col-sm-6 col-xs-6" id="individual">
+					<a class="tab-btn "  href="individual">Pilotos</a>
+				</div>
+				<div class="cold-md-6 col-sm-6 col-xs-6" id="team">
+					<a class="tab-btn active" href="team">Equipos</a>
+				</div>
+			</div>
+			<div class="row content-result">
+				<div class="cold-md-12 col-sm-12 col-xs-12 results">
+					<table class="table fixed">
+						<colgroup>
+							<col width="10%">
+							<col  width="70%">
+							<col width="30%">
+						</colgroup>
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>Equipo</th>
+								<th>Puntos</th>
+							</tr>
+						</thead>
+						<tbody>
+
+						</tbody>
+					</table>
+					<table class="table table-striped">
+						<colgroup>
+							<col width="10%">
+							<col  width="70%">
+							<col width="30%">
+						</colgroup>	
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>Equipo</th>
+								<th>Puntos</th>
+							</tr>
+						</thead>
+						<tbody>
+                    	    {#resultsTeams}
+							<tr class="f16">
+								<td>{id}</td>
+								<td><span class="flag {nationality}"></span>{title}</td>
+								<td>{points}</td>
+							</tr>
+                    	    {/resultsTeams}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		$(document).ready(function() {
+			$('.tab-btn').bind('click', function(e) {
+				e.preventDefault();
+				var target = $(this).attr('href')+'-section';
+
+				$('#' + $(this).parent().parent().parent().parent().attr('id')).css('display', 'none');
+				$('#' + target).css('display', 'visible');
+			});
+		});
+	</script>
+</body>
+</html>
+

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{title}</title>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="bootstrap.min.css" />
+	<link rel="stylesheet" href="flags32.css" />
+	<link rel="stylesheet" href="flags16.css" />
+	<link rel="stylesheet" href="style.css" />
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="theme/js/bootstrap.min.js"></script>
+</head>
+<body >
+	<div class="container-fluid">
+	<div class="row">
+			<div class="cold-md-12 col-sm-12 col-xs-12 event-header-title event-header">
+		       <h1>{title} </h1>
+			</div>	
+
+			<div class="cold-md-12 col-sm-12 col-xs-12 event-header">
+		       <h1>{title} </h1>
+			</div>
+			<div class="cold-md-12 col-sm-12 col-xs-12 results">
+				<table class="table fixed fixed-rp event-results ">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>No</th>
+							<th>Piloto</th>
+							<th>ESC</th>
+							<th>VUE</th>
+							<th>Tiempo</th>
+							<th>Puntos</th>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+			<div class="row">
+				<div class="cold-md-12 col-sm-12 col-xs-12 results">
+					<table class="table table-striped event-results">
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>No</th>
+								<th>Piloto</th>
+								<th>ESC</th>
+								<th>VUE</th>
+								<th>Tiempo</th>
+								<th>Puntos</th>
+							</tr>
+						</thead>
+						<tbody>
+	                        {#results}
+							<tr class="f16">
+								<td>{id}</td>
+								<td>{performer_id}</td>
+								<td colspan="4"><span class="flag {nationality}"></span>{title}</td>
+							
+								<td>{points}</td>
+							</tr>
+							<tr class="f16">
+								<td colspan="3">
+								<td>{teamInitials}</td>
+								<td>{laps}</td>
+								<td colspan="2">{timeOrRetired}</td>
+							</tr>
+   	                     	{/results}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+</body>
+</html>
+

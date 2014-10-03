@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>OnF1</title>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="bootstrap.min.css" />
+	<link rel="stylesheet" href="flags32.css" />
+	<link rel="stylesheet" href="flags16.css" />
+	<link rel="stylesheet" href="style.css" />
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="theme/js/bootstrap.min.js"></script>
+</head>
+<body >
+	<div class="container-fluid">
+			<div class="row">
+				<div class="cold-md-12 col-sm-12 col-xs-12 results">
+					<table class="table fixed">
+						<colgroup>
+							<col width="10%">
+							<col  width="70%">
+							<col width="30%">
+						</colgroup>
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>Equipo</th>
+								<th>Puntos</th>
+							</tr>
+						</thead>
+						<tbody>
+
+						</tbody>
+					</table>
+					<table class="table table-striped">
+						<colgroup>
+							<col width="10%">
+							<col  width="70%">
+							<col width="30%">
+						</colgroup>			
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>Equipo</th>
+								<th>Puntos</th>
+							</tr>
+						</thead>
+						<tbody>
+                    	    {#results}
+							<tr class="f16">
+								<td>{id}</td>
+								<td><span class="flag {nationality}"></span>{title}</td>
+								<td>{points}</td>
+							</tr>
+                    	    {/results}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+</body>
+</html>
