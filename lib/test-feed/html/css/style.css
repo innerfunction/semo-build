@@ -1,0 +1,136 @@
+
+body {
+	background-color: #EDEDED;
+	font-family: 'Century Gothic', sans-serif;
+}
+.divider {
+	width: 100%;
+	height: 1px;
+	background-color: white;
+	margin: 10px 0px 20px 0px;
+}
+.banner {
+	width: 100%;
+	height: 50px;
+	background-color: #09AA9A;
+}
+.main-image {
+	width: 100%;
+	background-color: #fff;
+	padding: 10px 0;
+	margin-bottom: 20px;	
+
+	display: inline-block;
+	position: relative;
+	z-index: 1;
+}
+.content {
+	margin: 10px;
+}
+.favourite-btn {
+	width: 72px;
+	height: 72px;
+	background-image: url(../images/favourites/flag-off.png);
+	background-repeat: no-repeat;
+	background-position: top center;
+	
+	display: block;
+	position: absolute;
+	z-index: 1;
+	top: 15px;
+	right: 10px;	
+}
+.favourite-btn.active {
+	background-image: url(../images/favourites/flag-on.png);
+}
+.race-title {
+	font-size: 24px;
+}
+.race-date {
+	font-size: 24px;
+}
+.race-description p{
+	font-size: 16px;
+	line-height: 160%;
+	color: #000;
+
+}
+.action-area {
+	width: 100%;
+	text-align: center;
+	margin:20px 0;
+}
+a.race-results-btn {
+	padding: 10px;
+	background-color: #FB2F29;
+	text-transform: uppercase;
+	color: #fff;
+	text-decoration: none;
+}
+a.race-results-btn:hover {
+	background-color: #09AA9A;
+}
+
+
+/* RESULTS RACE */ 
+.flag-margin {
+	margin-right: 10px;
+}
+th {
+	color: #FF0000;
+}
+.race-results-title {
+	background-color: #EDEDED;
+	padding: 10px 0;
+}
+.race-name {
+	font-size: 24px ;
+	font-weight: bold;
+	line-height: 1;
+	padding-left: 10px;
+}
+.race-place {
+	font-size: 18px;
+	color: #999999;
+	line-height:0.5;
+	padding-left: 10px;
+}
+.results {
+	margin: 0;
+	padding: 0;
+	background-color: #fff;
+}
+
+
+/* NEWS */ 
+
+.date-author {
+	color: #666;
+}
+.news-image-area {
+	margin: 20px 0;
+}
+.news-image {
+	padding: 4px;
+	line-height: 1.5; 
+	background-color: #fff;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	-webkit-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+	display: inline-block;
+}
+
+/* SPONSOR */ 
+.sponsor-links a{
+	color: #fff; /*666666*/
+}
+.sponsor-links i{
+	color: #ff0000;
+	width: 20px;
+}
+.sponsor-links p {
+	width: 100%;
+	word-wrap:break-word;
+	text-overflow:ellipsis;
+}
