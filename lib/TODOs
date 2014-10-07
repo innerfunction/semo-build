@@ -1,6 +1,19 @@
-1. semob: Support direct referencing of single feed (i.e. feedID arg is optional)
+x. semob: Support direct referencing of single feed (i.e. feedID arg is optional)
     > Requires generation of feed ID from module name
     > Also, semob doesn't count number of args properly
 2. Allow feeds to specify files to be excluded from the build diff
 3. Build script documentation.
 x. Add deep-equal to package.json
+
+5. Allow manifest.json to be included in build for incorporation by publisher.
+
+6. Syntactical sugar:
+    Images.resize( opts, file ) - Resize image and write to file, returning FileImages
+                                  'file' can be just a boolean true, or a filename template.
+        Do similar for other types.
+
+    Images.map( items, name ) - Map images to a named property of each item in an array.
+                                Array items are assumed to already have a property of that name with a value related to an image ID.
+                                Allow 'name' to be a dotted reference.
+                                Relevant to Files also.
+
