@@ -7,7 +7,7 @@ x. Add deep-equal to package.json
 
 5. Allow manifest.json to be included in build for incorporation by publisher.
 
-6. Syntactical sugar:
+x. Syntactical sugar:
     Images.resize( opts, file ) - Resize image and write to file, returning FileImages
                                   'file' can be just a boolean true, or a filename template.
         Do similar for other types.
@@ -17,3 +17,9 @@ x. Add deep-equal to package.json
                                 Allow 'name' to be a dotted reference.
                                 Relevant to Files also.
 
+
+        json: function( data, filename ) {
+            var name = filename && mods.path.basename( filename, mods.path.extname( filename ) );
+            var content = new Content( name, JSON.stringify( data ), 'application/json');
+            return filename ? content.write( filename ) : content;
+        },
