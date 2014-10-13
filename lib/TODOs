@@ -5,7 +5,7 @@ x. semob: Support direct referencing of single feed (i.e. feedID arg is optional
 3. Build script documentation.
 x. Add deep-equal to package.json
 
-5. Allow manifest.json to be included in build for incorporation by publisher.
+x. Allow manifest.json to be included in build for incorporation by publisher.
 
 x. Syntactical sugar:
     Images.resize( opts, file ) - Resize image and write to file, returning FileImages
@@ -18,8 +18,3 @@ x. Syntactical sugar:
                                 Relevant to Files also.
 
 
-        json: function( data, filename ) {
-            var name = filename && mods.path.basename( filename, mods.path.extname( filename ) );
-            var content = new Content( name, JSON.stringify( data ), 'application/json');
-            return filename ? content.write( filename ) : content;
-        },
