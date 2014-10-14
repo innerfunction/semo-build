@@ -114,7 +114,7 @@ th {
 
 
 .table > tbody > tr > td {
-	padding: 5px;
+	padding: 8px;
 }
 
 /* NEWS */
@@ -236,6 +236,8 @@ div.btn-social, .btn-social {
 	position: fixed;
 	width:100%;
 	z-index: 2;
+	top : 0;
+	margin-top:0;
 
 }
 .row.content-result{
@@ -246,6 +248,7 @@ div.btn-social, .btn-social {
 	width:100%;
 	background: #FFF;
 	z-index: 2;
+	top:54px;
 	/*display: table;*/
 }
 .table.fixed>thead>tr>th{
