@@ -1,0 +1,3 @@
+Performance related questions:
+* Should build jobs be executed on a build queue, to ensure one build at a time?
+* Should builds be executed on a separate process from the uspace?
