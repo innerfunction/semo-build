@@ -18,3 +18,9 @@ x. Syntactical sugar:
                                 Relevant to Files also.
 
 
+7. Image filenames: There is currently a hack in ImageFile.write( ) to get a nice format filename out.
+   Problem arises when generating filenames from templates, and complicated by the fact that the image.id can be a URL
+   (because it's used in Images lookup to map images to source properties). When generating an image filename, would
+   be more useful to have the image internal ID at this point, but it isn't currently available. One option is to
+   modify the image service meta() op to include more info - i.e. internal image ID - but initial attempts at a quick
+   fix in this department didn't work.
