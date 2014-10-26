@@ -1,0 +1,7 @@
+1. Partial downloads
+i.e. 'since' downloads: These are missing db updates; e.g.:
+* Create a post in wp
+* Next download & build generates the new file content ok;
+* But no db update is included.
+* To do (efficiently) may require running a diff on the manifest's db section,
+  for inclusion in the since zip.

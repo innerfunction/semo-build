@@ -1,3 +1,38 @@
 Performance related questions:
 * Should build jobs be executed on a build queue, to ensure one build at a time?
 * Should builds be executed on a separate process from the uspace?
+
+Incremental downloads & builds:
+* Incremental downloads will currently work if the data feed supports it
+  (i.e. by providing some way to request only updates since the previous request)
+* Incremental downloads must present only data new since the previous download to the build script:
+  - the download script may store a complete record of all feed data, but the build script should
+    only build the 'new' data.
+* An incremental build works as follows:
+  - Copy the full result of the previous build to the output dir
+  - Perform the (partial) build on the new download data
+* The publisher works exactly as it currently does.
+
+The purpose of an incremental build is efficiency: To avoid rebuilding content when most of it remains
+unchanged from build to build.
+
+One of two possible additions to semo-build would provide full support for incremental builds:
+1 Allow a feed to be marked as 'incremental: true'; the builder will then copy the previous build to
+  the output dir before invoking the build script.
+2 Add a function to the build context for copying files from the previous build.
+
+Option (1) would seem to be the best one.
+
+A further enhancement would allow downloads/builds to be trigged by the source data feed, in order to
+reduce the latency between data being updated in the feed and being published to the app. This would
+work as follows:
+* The publisher exposes an additional HTTP URL which, when called, triggers the download and build of
+  a specified feed.
+* The source data feed would request this URL when it has new data.
+* The URL would need appropriate access controls to prevent misuse.
+* Feeds using this scheme would no longer need scheduled downloads/builds.
+* The scheme could be extended to allow the source feed to submit the actual data that has been updated;
+  but this approach might be brittle, as a failure to deliver the notification could result in missing
+  data. For this approach to work reliably the component on the data feed side would have to track
+  precisely all data items not yet delivered to the publisher, and ensure that they are eventually
+  delivered.
