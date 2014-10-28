@@ -5,3 +5,6 @@ i.e. 'since' downloads: These are missing db updates; e.g.:
 * But no db update is included.
 * To do (efficiently) may require running a diff on the manifest's db section,
   for inclusion in the since zip.
+
+NOTE: Does subs content packaged in the app need to include a build ID?
+
