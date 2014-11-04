@@ -4,12 +4,17 @@ var mode;
 process.argv.slice( 2 ).forEach(function( arg ) {
     switch( arg ) {
     case '-logconfig':
+    case '-loglevel':
         mode = arg;
         break;
     default:
         switch( mode ) {
         case '-logconfig':
             log4js.configure( arg );
+            break;
+        case '-loglevel':
+            log4js.setLevel( arg );
+            break;
         }
     }
 });
