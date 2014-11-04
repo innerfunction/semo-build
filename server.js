@@ -13,7 +13,7 @@ process.argv.slice( 2 ).forEach(function( arg ) {
             log4js.configure( arg );
             break;
         case '-loglevel':
-            log4js.setLevel( arg );
+            log4js.setGlobalLogLevel( arg );
             break;
         }
     }
