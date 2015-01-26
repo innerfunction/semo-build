@@ -26,7 +26,12 @@ x. Syntactical sugar:
    fix in this department didn't work.
 
 Incremental downloads:
-x Check handling of amqp client after feed reload - client needs to be removed and re-registered?
+* Nasty error when copying previous build content to new build:
+    1. Content is being copied from wrong place (output/ instead of publish/)
+    2. Looks to be cause of recursive error in deepcp (because to and from paths are identical?)
+* Need a reliable way to detect when a full feed download needs to be done.
+    - This is needed because otherwise the first time a build script is run on a system, it doesn't
+      have complete data.
+    - The trigger is when a previous build is not found in the db?
+    - Incremental feeds then need a way to download all posts for all post types (not difficult)
 * Apply changes to Semo (new)
-x Can't save Feed object to request queue doc - so how to reload at restart?
-* Build process stops at 'Loading previous build...' with no error.
