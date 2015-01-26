@@ -28,3 +28,5 @@ x. Syntactical sugar:
 Incremental downloads:
 x Check handling of amqp client after feed reload - client needs to be removed and re-registered?
 * Apply changes to Semo (new)
+* Can't save Feed object to request queue doc - so how to reload at restart?
+* Build process stops at 'Loading previous build...' with no error.

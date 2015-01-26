@@ -24,10 +24,11 @@ var start = require('./lib/start');
 // Start the build system with the full set of components. The installer and publisher
 // components are perpetual processes, so the server will continue running once started.
 var components = {
-    install: require('./lib/installer'),    // Manages installation of feed configurations.
-    download: require('./lib/downloader'),  // Manages performing of feed downloads.
-    build: require('./lib/builder'),        // Manages performing of feed builds.
-    publish: require('./lib/publisher')     // Manages publishing of feed builds.
+    amqp:       require('./lib/amqp'),          // An AMQP client; receives notification of feed updates.
+    install:    require('./lib/installer'),     // Manages installation of feed configurations.
+    download:   require('./lib/downloader'),    // Manages performing of feed downloads.
+    build:      require('./lib/builder'),       // Manages performing of feed builds.
+    publish:    require('./lib/publisher')      // Manages publishing of feed builds.
 }
 start( components )
 .then(function() {
