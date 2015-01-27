@@ -34,4 +34,5 @@ x Nasty error when copying previous build content to new build:
       have complete data.
     - The trigger is when a previous build is not found in the db?
     - Incremental feeds then need a way to download all posts for all post types (not difficult)
+* Incremental build has been /seen/ working, but didn't appear to work in last test...
 * Apply changes to Semo (new)
