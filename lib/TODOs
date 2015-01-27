@@ -26,7 +26,7 @@ x. Syntactical sugar:
    fix in this department didn't work.
 
 Incremental downloads:
-* Nasty error when copying previous build content to new build:
+x Nasty error when copying previous build content to new build:
     1. Content is being copied from wrong place (output/ instead of publish/)
     2. Looks to be cause of recursive error in deepcp (because to and from paths are identical?)
 * Need a reliable way to detect when a full feed download needs to be done.
