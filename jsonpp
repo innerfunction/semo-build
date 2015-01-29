@@ -1,0 +1,10 @@
+#!/usr/bin/env node
+if( process.argv.length < 3 ) {
+    console.log('Pretty print the contents of a JSON file.')
+    console.log('Usage: jsonpp <filename>');
+}
+else {
+    var data = require('fs').readFileSync( process.argv[2] );
+    var json = JSON.parse( data );
+    console.log( JSON.stringify( json, null, 4 ) );
+}
