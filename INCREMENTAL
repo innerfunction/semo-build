@@ -16,14 +16,24 @@ Incremental build: Startup
 
   - The build queue latency is important in both cases, as it should ensure that multiple update
     messages for the same feed can be processed before the build happens. Even so, it might be
-    useful to allow the installer to specifiy its own build queue latency, to allow a longer value
+    useful to allow the installer to specify its own build queue latency, to allow a longer value
     than normal, to ensure efficient operation.
 
-* Multiple sequential (or near-sequential) update messages on the queue for the same post can cause
+x Multiple sequential (or near-sequential) update messages on the queue for the same post can cause
   errors due to doc revision mismatches in the couchdb. The safest thing to do is to ensure that
   download requests for the same URL are queued, i.e. so that a subsequent download request can't
   start until any previous request for the same URL has finished.
 
-* Is manifest being correctly generated? i.e the db section.
+x Is manifest being correctly generated? i.e the db section.
   - Need to check that updates are properly merged into the previous manifest
   - Will need to explicitly flag deleted vs. updated records
+
+x Feed record should record the time of last download
+
+[2015-02-02 12:50:10.572] [ERROR] semo.start - Error: Heartbeat timeout
+    at Heart.<anonymous> (/Users/juliangoacher/Work/Github/semo-build/node_modules/amqplib/lib/connection.js:415:26)
+    at Heart.emit (events.js:92:17)
+    at Heart.runHeartbeat (/Users/juliangoacher/Work/Github/semo-build/node_modules/amqplib/lib/heartbeat.js:88:17)
+    at wrapper [as _onTimeout] (timers.js:261:14)
+    at Timer.listOnTimeout [as ontimeout] (timers.js:112:15)
+
