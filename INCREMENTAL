@@ -1,0 +1,29 @@
+Incremental build: Startup
+
+* Live build queue should have TTL, like the test queue.
+
+* If the build process is running, then all messages on the queue should be processed within the TTL
+  (Need to confirm this; delivery can be near-instantaneous, but download may take time, particularly
+   if a lot of updates are being delivered on a particular channel. Is there any limit between receiving
+   a message and sending the ACK? What if the message's TTL expires in the time between the message
+   being received and the ACK being sent?)
+
+* Each feed has two startup modes:
+  1. Install: When the feed is being installed (defined as no feed record/data in the db).
+     This requires (1) download of all posts, followed by (2) processing of message queue.
+  2. Restart: When the feed is restarted (defined as feed install and feed record/data in db).
+     This requires the WP API to resend all un-ACK'd messages in its database.
+
+  - The build queue latency is important in both cases, as it should ensure that multiple update
+    messages for the same feed can be processed before the build happens. Even so, it might be
+    useful to allow the installer to specifiy its own build queue latency, to allow a longer value
+    than normal, to ensure efficient operation.
+
+* Multiple sequential (or near-sequential) update messages on the queue for the same post can cause
+  errors due to doc revision mismatches in the couchdb. The safest thing to do is to ensure that
+  download requests for the same URL are queued, i.e. so that a subsequent download request can't
+  start until any previous request for the same URL has finished.
+
+* Is manifest being correctly generated? i.e the db section.
+  - Need to check that updates are properly merged into the previous manifest
+  - Will need to explicitly flag deleted vs. updated records

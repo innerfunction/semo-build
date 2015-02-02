@@ -1,7 +1,7 @@
 {
     "name":"semo-build",
     "private":false,
-    "version":"0.0.3",
+    "version":"0.0.5",
     "dependencies": {
         "agentkeepalive":"=0.2.3",
         "amqplib":"=0.3.0",
