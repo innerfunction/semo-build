@@ -1,0 +1,11 @@
+{
+    "appenders": [
+        { "type": "console" }
+    ],
+    "levels": {
+        "semo":             "INFO",
+        "semo.build":       "DEBUG",
+        "semo.ext.amobie":  "DEBUG",
+        "uspace":           "INFO"
+    }
+}
