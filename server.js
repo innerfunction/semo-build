@@ -18,11 +18,9 @@ process.argv.slice( 2 ).forEach(function( arg ) {
     case '-builder':
     case '-logconfig':
     case '-loglevel':
+    case '-publisher':
         mode = arg;
         break;
-    case '-nopublish':
-        Log.info('Disabling publish component');
-        delete components.publish;
         break;
     default:
         switch( mode ) {
@@ -38,6 +36,11 @@ process.argv.slice( 2 ).forEach(function( arg ) {
         case '-loglevel':
             log4js.setGlobalLogLevel( arg );
             break;
+        case '-publisher':
+            if( arg == 'semocs' ) {
+                Log.info('Using semo content server');
+                components.publish = require('./lib/semocs');
+            }
         }
     }
 });
