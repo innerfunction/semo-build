@@ -15,32 +15,23 @@ var components = {
 var mode;
 process.argv.slice( 2 ).forEach(function( arg ) {
     switch( arg ) {
-    case '-builder':
-    case '-logconfig':
-    case '-loglevel':
-    case '-publisher':
+    case '--logconfig':
+    case '--loglevel':
         mode = arg;
         break;
+    case '--semocs':
+        Log.info('Using semocs');
+        components.build = require('./lib/builder.v2');
+        components.publish = require('./lib/semocs');
         break;
     default:
         switch( mode ) {
-        case '-builder':
-            if( arg == 'v2' ) {
-                Log.info('Using builder v2');
-                components.build = require('./lib/builder.v2');
-            }
-            break;
-        case '-logconfig':
+        case '--logconfig':
             log4js.configure( arg );
             break;
-        case '-loglevel':
+        case '--loglevel':
             log4js.setGlobalLogLevel( arg );
             break;
-        case '-publisher':
-            if( arg == 'semocs' ) {
-                Log.info('Using semo content server');
-                components.publish = require('./lib/semocs');
-            }
         }
     }
 });
